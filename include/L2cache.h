@@ -11,8 +11,10 @@
 
 /* L1 and l2 info */
 struct l1_l2_entry_info {
+  int idx;  
 	int l1_tag;
 	int l1_associativity;
+  int l2_idx;
 	int l2_tag;
 	int l2_associativity;
 };
@@ -35,11 +37,11 @@ struct l1_l2_entry_info {
  * [in/out] l2_result: return the cache operation result in l2 (miss_hit_status)
  * [out] result: result of the operation (returns_types)
  */
-int lru_replacement_policy_l1_l2(const l1_l2_entry_info *l1_l2_info,
+int lru_replacement_policy_l1_l2(const l1_l2_entry_info* l1_l2_info,
 																 bool loadstore,
 																 entry* l1_cache_blocks,
 																 entry* l2_cache_blocks,
 																 operation_result* l1_result,
 																 operation_result* l2_result,
-																 bool debug=false);
+																 bool debug);
 #endif
