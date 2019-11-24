@@ -26,5 +26,23 @@ int lru_replacement_policy_l1_vc(const l1_vc_entry_info *l1_vc_info,
               	              	 operation_result* vc_result,
                 	            	 bool debug)
 {
+     //Hit_Store || HIT_LOAD en l1
+ /* if(l1_result->miss_hit == HIT_STORE || l1_result->miss_hit == HIT_LOAD){
+    for(int i=0;i < l1_vc_info->l1_associativity; i++){
+        if(l1_cache_blocks[l1_idx+i].tag == l1_vc_info->l1_tag){
+            temp_set = l1_cache_blocks[l1_idx+i].rp_value; 
+            l1_cache_blocks[l1_idx+i].rp_value = l1_vc_info->l1_associativity - 1;
+            if(loadstore==true){
+              l1_result->dirty_eviction = true;
+              }
+        }
+    } 
+  for(int i=0; i < l1_vc_info->l1_associativity; i++){ 
+      if(l1_cache_blocks[l1_idx+i].tag != l1_vc_info->l1_tag && l1_cache_blocks[l1_idx+i].rp_value > temp_set){
+        l1_cache_blocks[l1_idx+i].rp_value = l1_vc_info->l1_associativity - 1;
+        }
+      }
+  } // FIN Hit_Store || HIT_LOAD en l1 */
+    
    return OK;
 }
